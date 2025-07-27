@@ -14,7 +14,7 @@ import {
   Trash2
 } from 'lucide-react';
 
-const OrderForm = ({ onClose }) => {
+const OrderForm = ({ onClose, onSuccess }) => {
   const { user } = useAuth();
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
@@ -127,7 +127,13 @@ const OrderForm = ({ onClose }) => {
 
       await ordersAPI.createOrder(orderData);
       toast.success('Order placed successfully!');
-      onClose();
+      
+      // Call onSuccess callback if provided
+      if (onSuccess) {
+        onSuccess();
+      } else {
+        onClose();
+      }
     } catch (error) {
       toast.error(error.message || 'Failed to place order');
     } finally {

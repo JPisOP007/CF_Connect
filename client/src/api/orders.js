@@ -52,9 +52,9 @@ export const ordersAPI = {
   },
 
   // Get vendor orders
-  getVendorOrders: async () => {
+  getVendorOrders: async (cacheParam = '') => {
     try {
-      const response = await api.get('/orders/vendor');
+      const response = await api.get(`/orders/vendor${cacheParam}`);
       return response.data;
     } catch (error) {
       throw error.response?.data || { message: 'Failed to fetch vendor orders' };
@@ -62,9 +62,9 @@ export const ordersAPI = {
   },
 
   // Get supplier orders
-  getSupplierOrders: async () => {
+  getSupplierOrders: async (cacheParam = '') => {
     try {
-      const response = await api.get('/orders/supplier');
+      const response = await api.get(`/orders/supplier${cacheParam}`);
       return response.data;
     } catch (error) {
       throw error.response?.data || { message: 'Failed to fetch supplier orders' };

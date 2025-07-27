@@ -181,7 +181,7 @@ const Dashboard = () => {
         {/* Quick Actions */}
         <div className="card mb-8">
           <div className="card-header">
-            <h3 className="card-title">Quick Actions</h3>
+            <h3 className="card-title">Quick Actions (Reload the page)</h3>
           </div>
           <div className="card-body">
             <div className="flex flex-wrap gap-4">
